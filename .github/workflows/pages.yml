@@ -1,0 +1,50 @@
+name: Publish approved documentation
+on:
+  workflow_dispatch:
+    inputs:
+      approval:
+        description: 'After owner preview approval, type PUBLISH LEDGERLY DOCS'
+        required: true
+        type: string
+permissions:
+  contents: read
+concurrency:
+  group: ledgerly-pages
+  cancel-in-progress: false
+jobs:
+  build:
+    if: github.event.inputs.approval == 'PUBLISH LEDGERLY DOCS' && github.ref == 'refs/heads/main'
+    permissions:
+      contents: read
+      pages: read
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: pip install -r requirements.txt
+      - run: mkdocs build --strict
+      - run: python scripts/validate_site.py
+      - name: Check existing Pages mode without changing it
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mode=$(gh api repos/${{ github.repository }}/pages --jq .build_type)
+          test "$mode" = "workflow" || { echo 'Owner must approve migration from legacy Pages to GitHub Actions first. No settings changed.'; exit 1; }
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: site/
+  deploy:
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy approved site
+        id: deployment
+        uses: actions/deploy-pages@v4

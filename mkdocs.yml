@@ -1,0 +1,108 @@
+site_name: Ledgerly
+site_description: Ledgerly — Household finances, made clearer. The official installation and user guide.
+site_url: https://ledgerly-app.com/
+repo_url: https://github.com/wt-kiran/ledgerly-docs
+repo_name: Documentation source
+edit_uri: ''
+docs_dir: docs
+site_dir: site
+strict: true
+copyright: '© 2026 Warwick Technologies Ltd. All rights reserved. · <a href="mailto:help@getledgerly.co.uk">help@getledgerly.co.uk</a>'
+theme:
+  name: material
+  custom_dir: overrides
+  font: false
+  language: en
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+  palette:
+    - scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark theme
+    - scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light theme
+plugins:
+  - search:
+      lang: en
+hooks:
+  - hooks/release_info.py
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+extra_javascript:
+  - assets/javascripts/accessibility.js
+extra_css:
+  - assets/stylesheets/ledgerly.css
+extra:
+  generator: false
+nav:
+  - Home: index.md
+  - Download & install:
+    - Downloads: downloads.md
+    - Installation: installation/index.md
+    - macOS: installation/macos.md
+    - Windows: installation/windows.md
+    - Upgrading: installation/upgrading.md
+  - Getting started:
+    - Your first week: getting-started/index.md
+    - Setup & sign in: getting-started/setup.md
+    - Try Demo Mode: guide/demo.md
+    - Monthly routine: getting-started/routine.md
+  - User guide:
+    - Guide overview: guide/index.md
+    - Overview: guide/overview.md
+    - Transactions: guide/transactions.md
+    - Reconciliation: guide/reconciliation.md
+    - Recurring Payments: guide/recurring.md
+    - Household Plan: guide/plan.md
+    - Wealth & Net Worth: guide/wealth.md
+    - Goals: guide/goals.md
+    - Allocate: guide/allocate.md
+    - Forecast & What-if: guide/forecast.md
+    - Review: guide/review.md
+    - Import Statements: guide/imports.md
+    - Households & users: guide/households.md
+    - Help & About: guide/help-about.md
+    - Tax Scenarios:
+      - Tax overview: tax/index.md
+      - Inheritance: tax/inheritance.md
+      - Property Sale / CGT: tax/property.md
+      - Investment Disposal / CGT: tax/investment.md
+      - Rental Income: tax/rental.md
+      - Dividend Income: tax/dividends.md
+      - Savings Interest: tax/interest.md
+      - Salary / Bonus: tax/salary.md
+      - Pension Withdrawal: tax/pension.md
+      - Combined Income: tax/combined.md
+  - Understanding the numbers:
+    - How the plan fits together: planning/index.md
+    - Worked monthly example: planning/example.md
+    - Glossary: planning/glossary.md
+  - Help & privacy:
+    - FAQ: faq.md
+    - Troubleshooting: troubleshooting.md
+    - Data & privacy: privacy.md
+    - Backups & recovery: backups.md
+    - Known limitations: limitations.md
+    - Support: support.md
+  - Release notes: releases.md

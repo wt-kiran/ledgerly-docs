@@ -1,0 +1,25 @@
+{
+  "version": "3.8.5",
+  "tag": "v3.8.5",
+  "published_at": "2026-10-31T19:59:42Z",
+  "release_url": "https://github.com/wt-kiran/ledgerly-docs/releases/tag/v3.8.5",
+  "verified_on": "2026-11-01",
+  "assets": {
+    "macos": {
+      "filename": "Ledgerly-3.8.5.dmg",
+      "url": "https://github.com/wt-kiran/ledgerly-docs/releases/download/v3.8.5/Ledgerly-3.8.5.dmg",
+      "bytes": 698563,
+      "sha256": "c7f8a9761d9d96cc3168d52951cb4edef35a682b1e05d3416b7976832b428c78",
+      "requirements": "macOS 13+ \u00b7 Apple silicon / Intel (bootstrap dependencies)",
+      "build": "3.8.5.3"
+    },
+    "windows": {
+      "filename": "Ledgerly-Setup-3.8.5.exe",
+      "url": "https://github.com/wt-kiran/ledgerly-docs/releases/download/v3.8.5/Ledgerly-Setup-3.8.5.exe",
+      "bytes": 2639258,
+      "sha256": "88058e39e7efcc7cfc7585046e94c9dcdf737e912a5509a1920e0fc65a080c90",
+      "requirements": "Windows 11 \u00b7 x64 / ARM64",
+      "build": "3.8.5"
+    }
+  }
+}
